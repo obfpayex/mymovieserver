@@ -8,17 +8,18 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @SequenceGenerator(
     name = "rolesSeq",
     sequenceName = "roles_seq",
     allocationSize = 1,
-    schema = "MOVIENEWDBA"
+    schema = "MYMOVIEDBA"
 )
 @Table(
     name = "roles",
-    schema = "MOVIENEWDBA"
+    schema = "MYMOVIEDBA"
 )
 @Cache(
     usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE
@@ -33,7 +34,7 @@ public class Role implements Serializable {
         generator = "rolesSeq"
     )
     @Column(
-        name = "oid",
+        name = "roleOid",
         nullable = false
     )
     private Long oid;
@@ -48,10 +49,11 @@ public class Role implements Serializable {
 
 
     @OneToOne
-    private Person person;
-
-    @OneToOne
     private RoleType roleType;
+
+    @ManyToOne
+    @JoinColumn(name="moviePersonOid")
+    private MoviePerson moviePerson;
 
 
     public Long getOid() {
@@ -70,19 +72,19 @@ public class Role implements Serializable {
         this.caracterName = caracterName;
     }
 
-    public Person getPerson() {
-        return person;
-    }
-
-    public void setPerson(Person person) {
-        this.person = person;
-    }
-
     public RoleType getRoleType() {
         return roleType;
     }
 
     public void setRoleType(RoleType roleType) {
         this.roleType = roleType;
+    }
+
+    public MoviePerson getMoviePerson() {
+        return moviePerson;
+    }
+
+    public void setMoviePerson(MoviePerson moviePerson) {
+        this.moviePerson = moviePerson;
     }
 }

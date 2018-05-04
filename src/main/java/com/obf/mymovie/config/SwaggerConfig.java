@@ -18,7 +18,7 @@ public class SwaggerConfig {
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
             .select()
-            .apis(RequestHandlerSelectors.basePackage("com.obf.movie.rest"))
+            .apis(RequestHandlerSelectors.basePackage("com.obf.mymovie.rest"))
             .paths(PathSelectors.any())
             .build();
     }

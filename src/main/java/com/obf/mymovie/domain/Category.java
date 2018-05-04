@@ -16,11 +16,11 @@ import java.util.Date;
         name = "categorySeq",
         sequenceName = "category_seq",
         allocationSize = 1,
-        schema = "MOVIENEWDBA"
+        schema = "MYMOVIEDBA"
     )
     @Table(
         name = "categories",
-        schema = "MOVIENEWDBA" // kan droppes
+        schema = "MYMOVIEDBA" // kan droppes
     )
     @Cache(
         usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE

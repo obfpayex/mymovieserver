@@ -14,11 +14,11 @@ import java.util.Date;
     name = "languagesSeq",
     sequenceName = "languages_seq",
     allocationSize = 1,
-    schema = "MOVIENEWDBA"
+    schema = "MYMOVIEDBA"
 )
 @Table(
     name = "languages",
-    schema = "MOVIENEWDBA"
+    schema = "MYMOVIEDBA"
 )
 @Cache(
     usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE

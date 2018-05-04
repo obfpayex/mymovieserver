@@ -29,7 +29,7 @@ public class RoleService {
     }
 
     private void getPersonFromDB(Role item) {
-        item.setPerson(personService.getPersonFromDB(item.getPerson()));
+        //item.setPerson(personService.getPersonFromDB(item.getPerson()));
     }
 
 

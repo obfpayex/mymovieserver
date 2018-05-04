@@ -46,7 +46,7 @@ public class CountryRecource {
 
     @Timed
     @PostMapping(value = "/country")
-    public ResponseEntity<Country> addLanguage(@RequestBody Country request) {
+    public ResponseEntity<Country> addCountry(@RequestBody Country request) {
 
         try {
             log.info("add() invoked for Country with oid: {} ", request.getOid());
@@ -95,8 +95,8 @@ public class CountryRecource {
         }
     }
     @Timed
-    @GetMapping(value = "/country/getalllanguages")
-    public List<Country> getAllLanguages() {
+    @GetMapping(value = "/country/getallcountries")
+    public List<Country> getAllCountries() {
 
         try {
             //log.info("get invoked: {} ", originalTitle);

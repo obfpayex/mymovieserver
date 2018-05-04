@@ -17,11 +17,11 @@ import java.util.Set;
     name = "personsSeq",
     sequenceName = "persons_seq",
     allocationSize = 1,
-    schema = "MOVIENEWDBA"
+    schema = "MYMOVIEDBA"
 )
 @Table(
     name = "persons",
-    schema = "MOVIENEWDBA" // kan droppes
+    schema = "MYMOVIEDBA" // kan droppes
 )
 @Cache(
     usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE
@@ -44,8 +44,7 @@ public class Person {
         max = 50
     )
     @Column(
-        name = "first_name",
-        nullable = false
+        name = "first_name"
     )
     private String firstName;
 
@@ -106,11 +105,13 @@ public class Person {
     )
     private String modifiedBy;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    private List<Role> roles;
+    @OneToMany//, cascade = CascadeType.ALL)
+    @JoinColumn(name = "moviePersonOid")
+    private List<MoviePerson> moviePerson;
 
 
     @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "countryOid")
     private Country bornCountry;
 
     public Long getOid() {
@@ -193,11 +194,11 @@ public class Person {
         this.bornCountry = bornCountry;
     }
 
-    public List<Role> getRoles() {
-        return roles;
+    public List<MoviePerson> getMoviePerson() {
+        return moviePerson;
     }
 
-    public void setRoles(List<Role> roles) {
-        this.roles = roles;
+    public void setMoviePerson(List<MoviePerson> moviePerson) {
+        this.moviePerson = moviePerson;
     }
 }

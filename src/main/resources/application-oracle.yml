@@ -9,8 +9,10 @@ spring:
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
         url: jdbc:oracle:thin:@localhost:1521:xe
-        username: MOVIENEWDBA
-        password: MOVIENEWDBA
+        username: MYMOVIEDBA
+        password: MYMOVIEDBA
+#        username: MOVIENEWDBA
+#        password: MOVIENEWDBA
 
         driverClassName: oracle.jdbc.OracleDriver
         hikari:

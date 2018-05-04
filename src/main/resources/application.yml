@@ -3,11 +3,11 @@
 # ===============================
 
 server:
-    port: 1330 #TODO:Change
+    port: 1331 #TODO:Change
 
 spring:
     application:
-        name: obf-movie-server
+        name: my-movie-server
 
     # ===============================
     # = JPA / HIBERNATE

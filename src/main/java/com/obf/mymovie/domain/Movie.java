@@ -17,11 +17,11 @@ import java.util.List;
     name = "moviesSeq",
     sequenceName = "movies_seq",
     allocationSize = 1,
-    schema = "MOVIENEWDBA"
+    schema = "MYMOVIEDBA"
 )
 @Table(
     name = "movies",
-    schema = "MOVIENEWDBA"
+    schema = "MYMOVIEDBA"
 )
 @Cache(
     usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE
@@ -128,13 +128,17 @@ public class Movie implements Serializable {
     @JoinTable(name = "movie_category", joinColumns = @JoinColumn(name = "movie_oid", referencedColumnName = "oid"), inverseJoinColumns = @JoinColumn(name = "category_oid", referencedColumnName = "oid"))
     private List<Category> categories;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Role> roles;
+    @OneToMany//, cascade = CascadeType.ALL)
+    @JoinColumn(name = "moviePersonOid")
+    private List<MoviePerson> moviePerson;
+
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "languageOid")
     private List<Language> languages;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "countryOid")
     private List<Country> originCountry;
 
     public Long getOid() {
@@ -241,14 +245,6 @@ public class Movie implements Serializable {
         this.categories = categories;
     }
 
-    public List<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List<Role> roles) {
-        this.roles = roles;
-    }
-
     public List<Language> getLanguages() {
         return languages;
     }
@@ -263,5 +259,13 @@ public class Movie implements Serializable {
 
     public void setOriginCountry(List<Country> originCountry) {
         this.originCountry = originCountry;
+    }
+
+    public List<MoviePerson> getMoviePerson() {
+        return moviePerson;
+    }
+
+    public void setMoviePerson(List<MoviePerson> moviePerson) {
+        this.moviePerson = moviePerson;
     }
 }

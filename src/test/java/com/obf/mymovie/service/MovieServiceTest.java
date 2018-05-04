@@ -60,11 +60,11 @@ public class MovieServiceTest {
         roleTypeService = new RoleTypeService(roleTypeRepository);
         roles = new ArrayList<>();
         roles.add(new Role());
-        roles.get(0).setPerson(addPerson(0,"Ola","Normand"));
+        //roles.get(0).setPerson(addPerson(0,"Ola","Normand"));
         roles.get(0).setRoleType(addRoleType(0,"Actor"));
 
         roles.add(new Role());
-        roles.get(0).setPerson(addPerson(0,"King","Kong"));
+        //roles.get(0).setPerson(addPerson(0,"King","Kong"));
         roles.get(0).setRoleType(addRoleType(0,"Director"));
 
         //movieService = new MovieService(movieRepository,personRepository,roleTypeRepository,categoryService);
@@ -142,25 +142,25 @@ public class MovieServiceTest {
     }
     private Movie makeMovie(long oid, String nTitle, String oTitle){
         Movie movie = new Movie();
-        movie.setCreated(Date.from(Instant.now()));
-        movie.setModified(Date.from(Instant.now()));
-        movie.setCategories(new ArrayList<Category>());
-        movie.getCategories().add(new Category());
-        movie.getCategories().get(0).setOid(1l);
-        movie.setRoles(new ArrayList<Role>());
-
-        movie.getRoles().add(new Role());
-        movie.getRoles().get(0).setPerson(new Person());
-        movie.getRoles().get(0).getPerson().setOid(1l);
-        movie.getRoles().get(0).setRoleType(new RoleType());
-        movie.getRoles().get(0).getRoleType().setOid(1l);
-
-        movie.setOriginalTitle(oTitle);
-        movie.setNorwegianTitle(nTitle);
-
-        if (oid > 0){
-            movie.setOid(oid);
-        }
+//        movie.setCreated(Date.from(Instant.now()));
+//        movie.setModified(Date.from(Instant.now()));
+//        movie.setCategories(new ArrayList<Category>());
+//        movie.getCategories().add(new Category());
+//        movie.getCategories().get(0).setOid(1l);
+//        movie.setRoles(new ArrayList<Role>());
+//
+//        movie.getRoles().add(new Role());
+//        movie.getRoles().get(0).setPerson(new Person());
+//        movie.getRoles().get(0).getPerson().setOid(1l);
+//        movie.getRoles().get(0).setRoleType(new RoleType());
+//        movie.getRoles().get(0).getRoleType().setOid(1l);
+//
+//        movie.setOriginalTitle(oTitle);
+//        movie.setNorwegianTitle(nTitle);
+//
+//        if (oid > 0){
+//            movie.setOid(oid);
+//        }
 
 
         return movie;

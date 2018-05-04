@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.sql.Date;
 import java.time.Instant;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @Service
@@ -88,10 +89,11 @@ public class MovieService {
         return movie;
     }
 
+
     private void setRoleWithDdataFromDB(Movie movie) {
-        List<Role> roles = roleService.setRoleWithDataFromDB(new ArrayList<>(movie.getRoles()));
-        movie.getRoles().clear();
-        movie.setRoles(roles);
+//        List<Role> roles = roleService.setRoleWithDataFromDB(new ArrayList<>(movie.getRoles()));
+//        movie.getRoles().clear();
+//        movie.setRoles(roles);
     }
 
     private void getCategoryFromDB(Movie movie) {
